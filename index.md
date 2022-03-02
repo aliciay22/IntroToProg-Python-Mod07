@@ -1,37 +1,84 @@
-## Welcome to GitHub Pages
+Alicia Young
 
-You can use the [editor on GitHub](https://github.com/aliciay22/IntroToProg-Python-Mod07/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+February 28, 2022
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+IT FDN 110 A 
 
-### Markdown
+Assignment 7
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+https://github.com/aliciay22/IntroToProg-Python-Mod07
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+# Pickling and Error Handling Demos
 
-1. Numbered
-2. List
+## Introduction
 
-**Bold** and _Italic_ and `Code` text
+The goal of this lesson is to demonstrate how pickling and error handling work in Python.  Pickling refers to converting a python object to a binary file, and unpickling refers to converting the object back to its original form.  Error handling refers to telling python how to handle errors, rather than having the program crash when they are encountered. 
 
-[Link](url) and ![Image](src)
-```
+## Summary
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+### Pickling/Unpickling
 
-### Jekyll Themes
+First the script demonstrates how pickling and unpickling work.  To begin the pickling process, the code must import the pickle module.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aliciay22/IntroToProg-Python-Mod07/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+![image](https://user-images.githubusercontent.com/99776233/156312015-f928bd33-7d22-4194-94fc-fc7cbb988c16.png)
 
-### Support or Contact
+This example pickles a python dictionary object into a binary file.  The dictionary object is defined.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+![image](https://user-images.githubusercontent.com/99776233/156312178-0288ca6b-00a6-4375-9f4b-594d9381b59f.png)
+ 
+Next, the file is opened, specifying the ‘wb’ option, which refers to write binary.
+
+![image](https://user-images.githubusercontent.com/99776233/156312288-7ba9e177-703e-4202-a73a-50cd32591c83.png)
+ 
+Then we use the pickle.dump() function to store (dump) the data into the file.  The functions takes two argument, the object to be pickled and the file to which the object will be saved.	  After pickle.dump, we close the file.
+ 
+![image](https://user-images.githubusercontent.com/99776233/156312365-6f12c4f7-b7a6-4cea-bd4b-9ee6c0afe1d9.png)
+
+The file, BinDict.dat in this example, will be saved in the working directory.
+
+To then unpickle a file, we open the file and then use the pickle.load() function with the ‘rb’ option (read binary) to load the data back into a python object. Then close the file.
+
+![image](https://user-images.githubusercontent.com/99776233/156312422-614ea7c6-0ad6-405b-a407-eb932c0a3b25.png)
+
+We can print the data the new object, dictionary in this case, to make sure the results are as expected.
+ 
+![image](https://user-images.githubusercontent.com/99776233/156312449-5f4f590d-6407-4257-bb19-3f4b5f5c6215.png)
+
+I found the following websites helpful, and the first one inspired this example.
+
+https://www.datacamp.com/community/tutorials/pickle-python-tutorial
+
+https://sites.pitt.edu/~naraehan/python3/pickling.html
+
+https://towardsdatascience.com/do-not-use-python-pickle-unless-you-know-all-these-facts-d9e8695b7d43
+
+### Exceptions and Error Handling
+
+Error handling in Python makes the code more robust and can prevent the code from crashing by diverting to an alternate path when errors are identified or prompting the user for correct input when invalid data are supplied.
+
+To demonstrate error handling, I created functions that checked that the user input either numeric or character data using a try/except block with a raise condition.
+The code under the try block executes unless the condition under raise is met. Meeting this condition forces an exception.
+
+In this example, I defined two error function classes, one to check for numeric data and one to check for character data.
+
+![image](https://user-images.githubusercontent.com/99776233/156312943-6e2e3d1f-4886-4efa-a2e2-427400623f80.png) 
+
+In the main script, the user has a choice to enter either an ID (numeric data) or a name (character data).  If the user enters character data when integer data is expected or numeric data when character data is expected an exception is raised and a message is printed to the user.  The code continues to run then even when the user enters something unexpected.
+
+![image](https://user-images.githubusercontent.com/99776233/156313053-cb6da8b9-4829-4743-918a-db6c87f0e586.png)
+ 
+
+I found the following websites helpful for error handling:
+
+https://www.w3schools.com/python/gloss_python_error_handling.asp
+
+https://www.datacamp.com/community/tutorials/exception-handling-python
+
+https://rollbar.com/blog/throwing-exceptions-in-python/
+
+## Summary
+
+This script provides simple demonstrations of pickling/unpickling in python and how error handling can be utilized.  Pickling may be useful in help code run faster, and error handling is important for catching input and other errors.
+
